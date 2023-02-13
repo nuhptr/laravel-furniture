@@ -129,4 +129,4 @@ $ php artisan make:middleware IsAdmin
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [Apache license](https://www.apache.org/licenses/LICENSE-2.0).
+The Furniture website code licensed under the [Apache license](https://www.apache.org/licenses/LICENSE-2.0).
