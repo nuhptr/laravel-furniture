@@ -32,6 +32,7 @@ install datatables
 
 # make controller
 - php artisan make:controller FrontendController
+- menggunakan --resource to add complete crud function
 
 # migrate to database
 - php artisan migrate
@@ -122,9 +123,24 @@ install datatables
 $ php artisan make:middleware IsAdmin
 
 - Code
-  if (Auth::user() && Auth::user()->roles == 'ADMIN') {
+    if (Auth::user() && Auth::user()->roles == 'ADMIN') {
             return $next($request);
         }
+
+    return redirect('/');
+```
+
+## Create Form Request
+
+```bash
+# app/Http/Request
+$ php artisan make:request [name_request] / --resource
+```
+
+## change plain textarea to ckeditor
+
+```bash
+- read on https://cdn.ckeditor.com/
 ```
 
 ## License

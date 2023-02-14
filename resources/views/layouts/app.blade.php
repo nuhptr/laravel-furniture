@@ -11,7 +11,6 @@
     <link rel="icon" href="{{ url('./frontend/images/content/favicon.png') }}" />
     <link rel="icon" href="{{ url('./frontend/favicon.ico') }}">
 
-    <link rel="manifest" href="site.webmanifest" />
     <link rel="apple-touch-icon" href="{{ url('./frontend/images/content/favicon.png') }}" />
 
     <!-- Fonts -->
