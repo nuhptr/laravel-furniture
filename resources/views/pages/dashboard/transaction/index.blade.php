@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Product') }}
+            {{ __('Transaction') }}
         </h2>
     </x-slot>
 
@@ -21,8 +21,17 @@
                     data: 'name',
                     name: 'name'
                 }, {
-                    data: 'price',
-                    name: 'price'
+                    data: 'email',
+                    name: 'email'
+                }, {
+                    data: 'courier',
+                    name: 'courier'
+                }, {
+                    data: 'total_price',
+                    name: 'total_price '
+                }, {
+                    data: 'status',
+                    name: 'status'
                 }, {
                     data: 'action',
                     name: 'action',
@@ -36,12 +45,6 @@
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="mb-10">
-                <a href="{{ route('dashboard.product.create') }}"
-                    class="rounded bg-green-500 py-2 px-4 font-bold text-white shadow-lg hover:bg-green-700">
-                    + Create Product
-                </a>
-            </div>
             <div class="overflow-hidden shadow sm:rounded-md">
                 <div class="bg-white px-4 py-5 sm:p-6">
                     <table id="crudTable">
@@ -49,7 +52,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-                                <th>Harga</th>
+                                <th>Email</th>
+                                <th>Kurir</th>
+                                <th>Total</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

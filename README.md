@@ -4,6 +4,7 @@
 - setup database using env.example
 - use laragon / something as server
 - setup your mailtrap
+- do'nt forget to setup env and composer install
 ```
 
 ## Dependencies
@@ -141,6 +142,12 @@ $ php artisan make:request [name_request] / --resource
 
 ```bash
 - read on https://cdn.ckeditor.com/
+```
+
+## Using storage:link
+
+```bash
+$ php artisan storage:link
 ```
 
 ## License

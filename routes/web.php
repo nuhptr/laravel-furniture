@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductGalleryController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,14 +27,20 @@ Route::get('/checkout/success', [FrontendController::class, 'success'])->name('c
 
 // Custom route for dashboard
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->name('dashboard.')->prefix('dashboard')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('index'); // dashboard.index
+    'auth:sanctum', config('jetstream.auth_session'), 'verified'
+])
+    ->name('dashboard.')->prefix('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('index'); // dashboard.index
 
-    // list route for middleware admin
-    Route::middleware(['admin'])->group(function () {
-        Route::resource('product', ProductController::class);
+        // list route for middleware admin
+        Route::middleware(['admin'])->group(function () {
+            Route::resource('product', ProductController::class);
+            Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
+                'index', 'create', 'store', 'destroy'
+            ]);
+            Route::resource('transaction', TransactionController::class)->only([
+                'index', 'show', 'edit', 'update'
+            ]);
+            Route::resource('user', UserController::class);
+        });
     });
-});

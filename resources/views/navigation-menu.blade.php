@@ -12,9 +12,21 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+                    @if (Auth::user()->roles == 'ADMIN')
+                        <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                            {{ __('Products') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                            {{ __('Transaction') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                            {{ __('User') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -149,9 +161,21 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="space-y-1 pt-2 pb-3">
-            <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+
+            @if (Auth::user()->roles == 'ADMIN')
+                <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                    {{ __('Products') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                    {{ __('Transaction') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                    {{ __('User') }}
+                </x-jet-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
